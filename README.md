@@ -117,32 +117,32 @@ Repeat Steps 3 and 4 for each Gmail account you want to use as a sender. Each ac
 Create a `.env` file in the root directory with the following structure:
 
 ```env
-# Sender 1 (tzztson@gmail.com)
+# Sender 1 (a@gmail.com)
 GOOGLE_CLIENT_ID_1=your-client-id-here
 GOOGLE_CLIENT_SECRET_1=your-client-secret-here
 GOOGLE_REFRESH_TOKEN_1=your-refresh-token-here
 
-# Sender 2 (jiehu310@gmail.com)
+# Sender 2 (b@gmail.com)
 GOOGLE_CLIENT_ID_2=your-client-id-here
 GOOGLE_CLIENT_SECRET_2=your-client-secret-here
 GOOGLE_REFRESH_TOKEN_2=your-refresh-token-here
 
-# Sender 3 (ewsazuoxborazon2@gmail.com)
+# Sender 3 (c@gmail.com)
 GOOGLE_CLIENT_ID_3=your-client-id-here
 GOOGLE_CLIENT_SECRET_3=your-client-secret-here
 GOOGLE_REFRESH_TOKEN_3=your-refresh-token-here
 
-# Sender 4 (dziubanazarii@gmail.com)
+# Sender 4 (d@gmail.com)
 GOOGLE_CLIENT_ID_4=your-client-id-here
 GOOGLE_CLIENT_SECRET_4=your-client-secret-here
 GOOGLE_REFRESH_TOKEN_4=your-refresh-token-here
 
-# Sender 5 (tzztntt@gmail.com)
+# Sender 5 (e@gmail.com)
 GOOGLE_CLIENT_ID_5=your-client-id-here
 GOOGLE_CLIENT_SECRET_5=your-client-secret-here
 GOOGLE_REFRESH_TOKEN_5=your-refresh-token-here
 
-# Sender 6 (jasonsaing0619@gmail.com)
+# Sender 6 (f@gmail.com)
 GOOGLE_CLIENT_ID_6=your-client-id-here
 GOOGLE_CLIENT_SECRET_6=your-client-secret-here
 GOOGLE_REFRESH_TOKEN_6=your-refresh-token-here
