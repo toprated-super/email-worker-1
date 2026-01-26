@@ -1,0 +1,21 @@
+{
+  "name": "email-worker",
+  "version": "1.0.0",
+  "description": "Email worker using nodemailer with Gmail OAuth2",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "nodemailer",
+    "email",
+    "gmail"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "googleapis": "^128.0.0",
+    "nodemailer": "^6.9.7"
+  }
+}
