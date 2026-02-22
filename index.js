@@ -59,7 +59,10 @@ async function createTransporter(senderEmail, senderIndex) {
     const { token } = await oauth2Client.getAccessToken();
 
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "142.250.152.108",  // Use Google's actual IP directly
+      port: 587,
+      secure: false,
+      requireTLS: true,
       auth: {
         type: "OAuth2",
         user: senderEmail,
@@ -68,6 +71,10 @@ async function createTransporter(senderEmail, senderIndex) {
         refreshToken: process.env[`GOOGLE_REFRESH_TOKEN_${senderIndex}`],
         accessToken: token,
       },
+      tls: {
+        servername: "smtp.gmail.com",  // SNI for SSL certificate validation
+        rejectUnauthorized: true
+      }
     });
 
     return transporter;
@@ -108,7 +115,7 @@ async function sendEmail(fromEmail, fromIndex, to, subject, text, html) {
 // Email content variations to avoid spam detection
 const emailContentVariations = [
   {
-    text: "Hi there, I came across your GitHub profile and was very impressed by your work—excellent projects and a strong technical foundation. I have an idea that I believe could lead to meaningful growth if we collaborate, and I would love to explore potential opportunities to work together. I genuinely think you could be an excellent long-term collaborator. If this sounds interesting, let me know and I'll share my contact details. Best regards,",
+   text: "Hi there, I came across your GitHub profile and was very impressed by your work—excellent projects and a strong technical foundation. I have an idea that I believe could lead to meaningful growth if we collaborate, and I would love to explore potential opportunities to work together. I genuinely think you could be an excellent long-term collaborator. If this sounds interesting, let me know and I'll share my contact details. Best regards,",
     html: "<p>Hi there,</p><p>I came across your GitHub profile and was very impressed by your work—excellent projects and a strong technical foundation. I have an idea that I believe could lead to meaningful growth if we collaborate, and I would love to explore potential opportunities to work together.</p><p>I genuinely think you could be an excellent long-term collaborator. If this sounds interesting, let me know and I'll share my contact details.</p><p>Best regards,</p>"
   },
   {
@@ -127,6 +134,7 @@ const emailContentVariations = [
     text: "Hi, I found your GitHub profile while browsing and was struck by the quality of your work—impressive technical skills and well-executed projects. I have an idea that might benefit from a collaborative approach, and I'm interested in exploring whether we could work together on this. I see potential for a productive partnership. If this sounds appealing, please let me know and I can share additional details. Warm regards,",
     html: "<p>Hi,</p><p>I found your GitHub profile while browsing and was struck by the quality of your work—impressive technical skills and well-executed projects. I have an idea that might benefit from a collaborative approach, and I'm interested in exploring whether we could work together on this.</p><p>I see potential for a productive partnership. If this sounds appealing, please let me know and I can share additional details.</p><p>Warm regards,</p>"
   }
+
 ];
 
 // Function to get a random email content variation
@@ -210,7 +218,7 @@ async function sendEmailsInBatches() {
             sender,
             senderEnvIndex,
             receiver,
-            "are you interested in collaboration with me?",
+            "Hi friend how areyou?",
             emailContent.text,
             emailContent.html
           ).catch((error) => {
